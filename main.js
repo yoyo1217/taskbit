@@ -1,7 +1,6 @@
 const { app, BrowserWindow, Menu, ipcMain, Tray } = require("electron");
 const { v4: uuidv4 } = require("uuid");
-// const url = require("url");
-// const path = require("path");
+const path = require("path");
 
 const DataStore = require("./DataStore");
 
@@ -44,7 +43,9 @@ function createMainWindow() {
     opacity: 0.9,
     show: false,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: false,
+      contextIsolation: false,
+      preload: path.join(__dirname, "/preload.js"),
     },
   });
 

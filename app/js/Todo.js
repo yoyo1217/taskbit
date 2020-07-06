@@ -1,5 +1,3 @@
-const { ipcRenderer } = require("electron");
-
 const form = document.querySelector("form");
 let list = document.querySelector("#todos");
 
